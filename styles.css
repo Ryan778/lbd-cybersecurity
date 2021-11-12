@@ -1,0 +1,41 @@
+:root {
+    --background: #EDF2F4; 
+    --accent-1: #2B2D42; 
+    --accent-2: #8D99AE; 
+    --text-color: #FFFFFF; 
+}
+
+html {
+    background: var(--background); 
+    font-family: 'Noto Sans', sans-serif; 
+}
+
+button {
+    font-family: 'PT Sans', 'Noto Sans', sans-serif;
+    border-radius: 0;
+    border: none; 
+    background: var(--accent-1); 
+    color: var(--text-color);
+    box-shadow: 4px 4px 0px var(--accent-2);
+    font-size: 14px;
+    width: 160px; 
+    height: 40px;
+}
+
+h1 {
+    font-family: 'PT Sans', 'Noto Sans', sans-serif;
+    font-size: 3.4rem;
+    margin: 0;
+    color: var(--accent-1);
+}
+
+h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--accent-2)
+}
+
+#landing {
+    text-align: center;
+    margin-top: 15%;
+}
