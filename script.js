@@ -53,6 +53,33 @@ function init() {
       page = dest; 
     }
   });
+  $('.policy-flag').forEach(e => {
+    e.onclick = function() {
+      e.style.backgroundColor = 'var(--emphasis)'; 
+      $('#div-popup').style.left = `${window.innerWidth/2 + 350}px`; 
+      $('#div-popup').style.top = (e.offsetTop + (e.offsetHeight/2) - 70)  + 'px'; 
+      setTimeout(() => {
+        fade($('#div-popup'), 1);
+      }, 800);
+    }
+  });
+
+  $('#btn-policyFound').onclick = function() {
+    fade($('#div-popup'), 0).then(() => {fade(page, 0)}).then(() => {
+      let root = $(':root')[0];
+      let css = getComputedStyle(root);
+      root.style.setProperty('--background', css.getPropertyValue('--accent-1')); 
+      setTimeout(() => {
+        root.style.setProperty('--accent-1', css.getPropertyValue('--text-color')); 
+        root.style.setProperty('--accent-1-hover', css.getPropertyValue('--text-color')); 
+        // root.style.setProperty('--accent-2', css.getPropertyValue('--accent-2')); 
+        root.style.setProperty('--accent-3', css.getPropertyValue('--accent-2')); 
+        root.style.setProperty('--text-color', css.getPropertyValue('--background')); 
+        page = $('#div-policyDetails'); 
+        fade(page, 1); 
+      }, 1200);
+    }); 
+  }
 }
 
 window.onload = init; 

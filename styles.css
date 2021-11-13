@@ -4,12 +4,20 @@
   --accent-1: #2b2d42; 
   --accent-1-hover: #37394e; 
   --accent-2: #8d99ae; 
+  --accent-3: #bdc5d1;
+  --emphasis: #ee5d5d;
+  --emphasis-alt: #eda6a7;  
   --text-color: #fff; 
+}
+
+::selection {
+  background-color: #6a97c5;
 }
 
 html {
   background: var(--background); 
   font-family: 'Noto Sans', sans-serif; 
+  transition: background 1.2s; 
 }
 
 body {
@@ -24,6 +32,7 @@ button {
   color: var(--text-color);
   box-shadow: 4px 4px 0px var(--accent-2);
   font-size: 14px;
+  font-weight: 600;
   width: 160px; 
   height: 40px;
   transition: all 0.16s; 
@@ -66,7 +75,7 @@ p {
   color: var(--accent-1);
   font-size: 1rem;
   line-height: 2;
-  margin: 2rem;
+  margin: 2rem 0;
 }
 
 @keyframes fade-out {
@@ -94,7 +103,7 @@ p {
 }
 
 #div-main {
-  position: fixed;
+  position: absolute;
   top: 0px; 
   width: 100%; 
   height: 100%;
@@ -112,6 +121,11 @@ p {
 
 .slide {
   display: none;
+}
+
+.v-padding {
+  width: 1px;
+  height: 80px;
 }
 
 /* Slide specific CSS */
@@ -134,4 +148,52 @@ p {
   font-size: 1.8rem;
   width: 220px;
   height: 300px;
+}
+
+/* Policy documents */
+.div-policy {
+  padding: 80px 0;
+}
+
+.div-policy-inner {
+  text-align: left;
+  background: var(--accent-2); 
+  box-shadow: 8px 8px 0px var(--accent-3);
+  padding: 60px;
+}
+
+.div-policy-inner *{
+  color: var(--text-color);
+}
+
+.policy-flag {
+  background: var(--accent-2); 
+  transition: all 0.4s;
+}
+
+/* Popup */
+#div-popup {
+  display: none;
+  position: absolute;
+  width: 240px;
+  height: 120px;
+  padding: 20px;
+  border: 8px solid var(--emphasis-alt);
+  background: var(--emphasis); 
+}
+
+#div-popup h2 {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+#div-popup button {
+  box-shadow: none;
+  background: none; 
+  border: 1px solid var(--text-color);
+}
+
+#div-popup button:active {
+  background: #ffffff4f;
+  transform: none;
 }
