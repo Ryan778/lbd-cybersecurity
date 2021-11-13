@@ -1,41 +1,137 @@
+/* General CSS */
 :root {
-    --background: #EDF2F4; 
-    --accent-1: #2B2D42; 
-    --accent-2: #8D99AE; 
-    --text-color: #FFFFFF; 
+  --background: #edf2f4; 
+  --accent-1: #2b2d42; 
+  --accent-1-hover: #37394e; 
+  --accent-2: #8d99ae; 
+  --text-color: #fff; 
 }
 
 html {
-    background: var(--background); 
-    font-family: 'Noto Sans', sans-serif; 
+  background: var(--background); 
+  font-family: 'Noto Sans', sans-serif; 
+}
+
+body {
+  margin: 0;
 }
 
 button {
-    font-family: 'PT Sans', 'Noto Sans', sans-serif;
-    border-radius: 0;
-    border: none; 
-    background: var(--accent-1); 
-    color: var(--text-color);
-    box-shadow: 4px 4px 0px var(--accent-2);
-    font-size: 14px;
-    width: 160px; 
-    height: 40px;
+  font-family: 'PT Sans', 'Noto Sans', sans-serif;
+  border-radius: 0;
+  border: none; 
+  background: var(--accent-1); 
+  color: var(--text-color);
+  box-shadow: 4px 4px 0px var(--accent-2);
+  font-size: 14px;
+  width: 160px; 
+  height: 40px;
+  transition: all 0.16s; 
+}
+
+button:not([disabled]):hover {
+  background: var(--accent-1-hover); 
+  cursor: pointer;
+}
+
+button:not([disabled]):active {
+  background: var(--accent-1-hover); 
+  box-shadow: 0px 0px 0px var(--accent-2);
+  transform: translateX(4px) translateY(4px);
 }
 
 h1 {
-    font-family: 'PT Sans', 'Noto Sans', sans-serif;
-    font-size: 3.4rem;
-    margin: 0;
-    color: var(--accent-1);
+  font-family: 'PT Sans', 'Noto Sans', sans-serif;
+  font-size: 3.4rem;
+  margin: 0;
+  color: var(--accent-1);
+}
+
+h2 {
+  font-family: 'PT Sans', 'Noto Sans', sans-serif;
+  font-size: 2.4rem;
+  margin: 0;
+  margin-bottom: 1.2rem;
+  color: var(--accent-1);
+  text-decoration: underline;
 }
 
 h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: var(--accent-2)
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--accent-2);
 }
 
-#landing {
-    text-align: center;
-    margin-top: 15%;
+p {
+  color: var(--accent-1);
+  font-size: 1rem;
+  line-height: 2;
+  margin: 2rem;
+}
+
+@keyframes fade-out {
+  from {
+    transform: translateY(0px); 
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-16px); 
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(16px); 
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px); 
+    opacity: 1;
+  }
+}
+
+#div-main {
+  position: fixed;
+  top: 0px; 
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#div-main > div {
+  text-align: center;
+  margin: auto;
+  max-width: 720px;
+  /* height: ; */
+}
+
+.slide {
+  display: none;
+}
+
+/* Slide specific CSS */
+
+#div-main #div-choosePolicy {
+  width: inherit; 
+  max-width: 1200px;
+}
+
+#div-choosePolicyGrid {
+  display: grid;
+  grid-template-columns: 33.3% 33.4% 33.3%;
+}
+
+#div-choosePolicyGrid div p {
+  color: var(--accent-2);
+}
+
+#div-choosePolicyGrid div button {
+  font-size: 1.8rem;
+  width: 220px;
+  height: 300px;
 }
