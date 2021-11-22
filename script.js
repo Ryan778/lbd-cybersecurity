@@ -1,4 +1,4 @@
-let page; 
+let page, practice = true; 
 
 function $(id) {
   if (id.slice(0, 1) === '#') {
@@ -65,6 +65,14 @@ function init() {
   });
 
   $('#btn-policyFound').onclick = function() {
+    if (practice) {
+      fade(page, 0); 
+      practice = false; 
+      page = $('#div-choosePolicy'); 
+      transition($('#div-popup'), page);
+      return; 
+    }
+
     fade($('#div-popup'), 0).then(() => {fade(page, 0)}).then(() => {
       let root = $(':root')[0];
       let css = getComputedStyle(root);
