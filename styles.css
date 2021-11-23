@@ -2,12 +2,14 @@
 :root {
   --background: #edf2f4; 
   --accent-1: #2b2d42; 
-  --accent-1-hover: #37394e; 
+  --accent-1-hover: #40425e; 
   --accent-2: #8d99ae; 
   --accent-3: #bdc5d1;
   --emphasis: #ee5d5d;
   --emphasis-alt: #eda6a7;  
+  --emphasis-alt-2: #e8eda6;  
   --text-color: #fff; 
+  --text-color-emphasis: #fde5b8; 
 }
 
 ::selection {
@@ -18,6 +20,7 @@ html {
   background: var(--background); 
   font-family: 'Noto Sans', sans-serif; 
   transition: background 1.2s; 
+  user-select: none;
 }
 
 body {
@@ -36,6 +39,15 @@ button {
   width: 160px; 
   height: 40px;
   transition: all 0.16s; 
+}
+
+button.btn-sm {
+  width: 80px; 
+  height: 32px;
+}
+
+button[disabled] {
+  opacity: 0.7;
 }
 
 button:not([disabled]):hover {
@@ -166,7 +178,7 @@ p {
   color: var(--text-color);
 }
 
-.policy-flag {
+.policy-flag, .policy-benign {
   background: var(--accent-2); 
   transition: all 0.4s;
 }
@@ -196,4 +208,59 @@ p {
 #div-popup button:active {
   background: #ffffff4f;
   transform: none;
+}
+
+#div-infobox {
+  position: fixed;
+  bottom: 10px;
+  left: calc(50% - 240px); 
+  padding: 10px;
+  width: 480px; 
+  background: var(--accent-3);
+  border: 1px dashed var(--accent-1);
+  display: none;
+}
+
+#div-infobox p {
+  margin: 0;
+}
+
+#div-infobox button {
+  box-shadow: none;
+}
+
+#div-infobox button:active {
+  background: var(--accent-2); 
+  transform: none;
+}
+
+.emphasized {
+  background-color: var(--emphasis); 
+}
+
+.div-policy-inner p span.policy-benign:hover, .div-policy-inner p span.policy-flag:not(.emphasized):hover {
+  cursor: pointer;
+  color: var(--text-color-emphasis);
+}
+
+/* Header */
+
+#div-header {
+  position: fixed;
+  z-index: 1; 
+  width: 100%; 
+  height: 40px; 
+  box-sizing: border-box;
+  padding: 8px 12px;
+}
+
+#div-header a {
+  color: var(--accent-1);
+  opacity: 0.4;
+  transition: opacity 0.16s;
+}
+
+#div-header a:hover {
+  opacity: 1;
+  cursor: pointer;
 }

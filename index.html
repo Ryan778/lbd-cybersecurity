@@ -11,6 +11,7 @@
   </head>
   <body>
     <div id='div-header'>
+      <a id='a-reset' style='opacity: 0' onclick='location.reload()'>Reset Experience</a>
     </div>
     <div id='div-main'>
       <div id='div-landing' class='slide'>
@@ -19,6 +20,9 @@
         <br/>
         <br/>
         <button class='action' data-target='div-privacy'>Begin</button>
+
+        <br/><br/>
+        <button class='action' data-target='div-practice'>Skip to Practice</button>
       </div>
       <div id='div-privacy' class='slide'>
         <h2>Privacy Policies</h2>
@@ -27,37 +31,42 @@
       </div>
       <div id='div-instructions' class='slide'>
         <h2>Instructions</h2>
-        <p>Select one of the three available sample privacy policies. (For the purposes of this demo, only the right privacy policy labelled 50 pages is available). Then, read through the privacy policy as a tech-savvy consumer and click on the part of the policy that a company shouldn't do / seems ethically wrong.</p>
+        <p>[INCOMPLETE -- todo: more detailed instructions] Read through the privacy policy as a tech-savvy consumer and click on the part of the policy that a company shouldn't do / seems ethically wrong.</p>
         <button class='action' data-target='div-practice'>Next</button>
       </div>
       <div id='div-practice' class='slide'>
         <h2>Practice</h2>
         <p><b>Follow the instructions from the previous page.</b><br/><i>(If you skipped through them... well that just proves our point yet again, no?)</i></p>
         <div class='div-policy-inner'>
-          <p>By using our service, you must provide us with a username and password. Usernames and passwords are securely stored on our server. Passwords are hashed with bcrypt using 15 rounds. <span class='policy-flag'>Also, we'll be tracking your precise location twice a minute and selling that data to third party advertisers.</span> Lastly, you can request your account to be deleted at any time via email.</p>
-          <p>&nbsp;&nbsp;Confused? <a style='cursor: pointer; text-decoration: underline;' class='action' data-target='div-instructions'>Click here to go back to the instructions.</a></p>
+          <p>By using our service, you must provide us with a username and password. Usernames and passwords are securely stored on our server. <span class='policy-benign action-info' data-msg='Bcrypt is a modern and secure password hashing mechanism, and is considered industry best practice. This is good!'>Passwords are hashed with bcrypt using 15 rounds.</span> <span class='policy-flag'>Also, we'll be tracking your precise location twice a minute and selling that data to third party advertisers.</span> Lastly, you can request your account to be deleted at any time via email.</p>
+          <p class='hl-exclude'>&nbsp;&nbsp;Confused? <a style='cursor: pointer; text-decoration: underline;' class='action' data-target='div-instructions'>Click here to go back to the instructions.</a></p>
         </div>
+      </div>
+      <div id='div-instructions-pt2' class='slide'>
+        <h2>Very nice!</h2>
+        <p>Now that you know how to go through a paragraph, let's try a more realistic privacy policy.</p>
+        <button class='action' data-target='div-choosePolicy'>Continue</button>
       </div>
       <div id='div-choosePolicy' class='slide'>
         <h2>Choose a Policy</h2>
         <br/><br/>
         <div id='div-choosePolicyGrid'>
           <div>
-            <button>1 Page</button>
+            <button class='action-info' data-msg="We'd rather read one this short too! Unfortunately, real privacy policies typically aren't this short.">1 Page</button>
             <p>&lt;1 Minute Read</p>
           </div>
           <div>
-            <button>5 Pages</button>
-            <p>3 Minute Read</p>
+            <button class='action-info' data-msg="We'd rather read one this short too! Unfortunately, real privacy policies typically aren't this short.">2 Pages</button>
+            <p>1 Minute Read</p>
           </div>
           <div>
-            <button class='action' data-target='div-policy3'>50 Pages</button>
-            <p>5 Hour Read</p>
+            <button class='action' data-target='div-policy3'>6 Pages</button>
+            <p>4 Minute Read</p>
           </div>
         </div>
       </div>
       <div id='div-policy3' class='slide div-policy'>
-        <h2>50 Page Policy</h2>
+        <h2>6 Page Policy</h2>
         <div class='div-policy-inner'>
           <h3>Important Privacy Policy</h3>
           <p>
@@ -100,6 +109,10 @@
       <div id='div-popup'>
         <h2>You got it!</h2>
         <button id='btn-policyFound'>Next</button>
+      </div>
+      <div id='div-infobox'>
+        <p>Lorem ipsum.</p>
+        <button id='btn-closeInfobox' class='btn-sm'>Close</button>
       </div>
     </div>
   </body>

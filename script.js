@@ -46,16 +46,50 @@ function transition(src, dest) {
 function init() {
   page = $('#div-landing'); 
   fade(page, 1); 
+
+  // Add feedback to clicking on policy lines
+  $('.div-policy-inner p:not(.hl-exclude)').forEach(ele => {
+    let targetStrings = ele.innerHTML.replace(/\<span .+\>/, '').split('.').map(r => r.trim()).slice(0, -1); 
+    for (let str of targetStrings) {
+      str += '.';
+      ele.innerHTML = ele.innerHTML.replace(str, `<span class='policy-benign action-info' data-onetime='1' data-msg='This sentence looks fine.'>${str}</span>`);
+    }
+  });
+
   $('.action').forEach(e => {
     e.onclick = function() {
+      if ($('#a-reset').style.opacity === '0') {
+        $('#a-reset').style.opacity = '' }
       let dest = $(`#${e.dataset.target}`); 
       transition(page, dest); 
       page = dest; 
     }
   });
+
+  $('.action-info').forEach(e => {
+    e.onclick = function() {
+      if (e.tagName === 'BUTTON') {
+        e.disabled = true;
+      } else if (e.tagName === 'SPAN') {
+        if (e.dataset.onetime) {
+          e.style.opacity = 0.4;
+        } else {
+          e.style.color = `var(--emphasis-alt-2)`;
+        }
+      }
+      let msg = e.dataset.msg; 
+      $('#div-infobox').firstElementChild.innerText = msg; 
+      fade($('#div-infobox'), 1);
+    }
+  });
+
+  $('#btn-closeInfobox').addEventListener('click', () => {
+    fade($('#div-infobox'), 0);
+  });
+
   $('.policy-flag').forEach(e => {
     e.onclick = function() {
-      e.style.backgroundColor = 'var(--emphasis)'; 
+      e.classList.add('emphasized'); 
       $('#div-popup').style.left = `${window.innerWidth/2 + 350}px`; 
       $('#div-popup').style.top = (e.offsetTop + (e.offsetHeight/2) - 70)  + 'px'; 
       setTimeout(() => {
@@ -68,7 +102,7 @@ function init() {
     if (practice) {
       fade(page, 0); 
       practice = false; 
-      page = $('#div-choosePolicy'); 
+      page = $('#div-instructions-pt2'); 
       transition($('#div-popup'), page);
       return; 
     }
