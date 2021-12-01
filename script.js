@@ -38,6 +38,7 @@ async function fade(ele, mode=0, reverse=0) {
  * @param {object} dest - destination element (to show)
  */
 function transition(src, dest) {
+  fade($('#div-infobox'), 0);
   fade(src, 0).then(() => {
     fade(dest, 1); 
   }); 
@@ -89,6 +90,7 @@ function init() {
 
   $('.policy-flag').forEach(e => {
     e.onclick = function() {
+      fade($('#div-infobox'), 0);
       e.classList.add('emphasized'); 
       $('#div-popup').style.left = `${window.innerWidth/2 + 350}px`; 
       $('#div-popup').style.top = (e.offsetTop + (e.offsetHeight/2) - 70)  + 'px'; 
