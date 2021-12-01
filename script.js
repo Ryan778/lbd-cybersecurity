@@ -50,7 +50,7 @@ function init() {
 
   // Add feedback to clicking on policy lines
   $('.div-policy-inner p:not(.hl-exclude)').forEach(ele => {
-    let targetStrings = ele.innerHTML.replace(/\<span .+\>/, '').split('.').map(r => r.trim()).slice(0, -1); 
+    let targetStrings = ele.innerHTML.replace(/\<span.*?\>.+?\<\/span\>/g, '').split('.').map(r => r.trim()).slice(0, -1); 
     for (let str of targetStrings) {
       str += '.';
       ele.innerHTML = ele.innerHTML.replace(str, `<span class='policy-benign action-info' data-onetime='1' data-msg='This sentence looks fine.'>${str}</span>`);
